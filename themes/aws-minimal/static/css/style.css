@@ -145,7 +145,6 @@ hr {
 }
 .site-logo:hover { color: var(--accent); }
 .site-logo .logo-bracket { color: var(--accent); }
-.site-logo .logo-dot     { color: var(--accent-2); }
 
 .nav-links {
   display: flex;
@@ -701,7 +700,7 @@ hr {
 .timeline-item::before {
   content: '';
   position: absolute;
-  left: -2.1rem;
+  left: -2.35rem;
   top: 0.5rem;
   width: 12px;
   height: 12px;
@@ -717,7 +716,7 @@ hr {
 .timeline-item--featured::before {
   width: 16px;
   height: 16px;
-  left: -2.3rem;
+  left: -2.50rem;
   background: var(--accent);
   border-color: var(--accent);
   box-shadow: 0 0 14px rgba(255,153,0,0.4);
