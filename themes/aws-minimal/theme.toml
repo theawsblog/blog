@@ -1,0 +1,10 @@
+name = "aws-minimal"
+license = "MIT"
+licenselink = "https://opensource.org/licenses/MIT"
+description = "A minimal, techy theme for AWS blogs with multi-author support and event timeline"
+homepage = "https://github.com/theawsblog/blog"
+tags = ["minimal", "blog", "aws", "dark", "timeline"]
+features = ["blog", "authors", "events", "timeline", "tags"]
+
+[author]
+  name = "The AWS Blog"

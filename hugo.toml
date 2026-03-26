@@ -1,0 +1,56 @@
+baseURL = "https://theawsblog.com"
+languageCode = "en-us"
+title = "The AWS Blog"
+theme = "aws-minimal"
+paginate = 10
+enableRobotsTXT = true
+enableGitInfo = false
+summaryLength = 70
+
+[markup]
+  [markup.highlight]
+    style = "nord"
+    lineNos = false
+    noClasses = false
+  [markup.goldmark.renderer]
+    unsafe = true
+
+[taxonomies]
+  tag = "tags"
+
+[params]
+  description = "Articles, tutorials and insights from the AWS community."
+  eyebrow = "The AWS Community Blog"
+  hero_title = "Where <span class=\"accent\">AWS builders</span><br/>share what they build."
+  hero_desc = "Deep dives, tutorials and community stories — written by cloud engineers, for cloud engineers."
+
+[menus]
+  [[menus.main]]
+    name = "posts"
+    url = "/posts"
+    weight = 1
+  [[menus.main]]
+    name = "events"
+    url = "/events"
+    weight = 2
+  [[menus.main]]
+    name = "authors"
+    url = "/authors"
+    weight = 3
+  [[menus.main]]
+    name = "tags"
+    url = "/tags"
+    weight = 4
+
+  [[menus.footer]]
+    name = "posts"
+    url = "/posts"
+    weight = 1
+  [[menus.footer]]
+    name = "events"
+    url = "/events"
+    weight = 2
+  [[menus.footer]]
+    name = "authors"
+    url = "/authors"
+    weight = 3
