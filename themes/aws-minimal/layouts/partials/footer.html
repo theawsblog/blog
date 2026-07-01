@@ -1,13 +1,7 @@
 <footer class="site-footer">
   <div class="footer-inner">
     <p class="footer-copy">
-      &copy; {{ now.Year }} <a href="{{ "/" | relURL }}">{{ .Site.Title }}</a>
-      &mdash; Built with <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>
+      &copy; {{ now.Year }} {{ .Site.Title }} &mdash; {{ i18n "footer_copy" }} &mdash; <a href="https://github.com/theawsblog/blog" target="_blank" rel="noopener noreferrer" data-umami-event="footer-github">GitHub</a> &mdash; <a href="{{ "index.xml" | relLangURL }}" rel="alternate" type="application/rss+xml" data-umami-event="footer-rss" aria-label="RSS feed" title="RSS feed">RSS</a>
     </p>
-    <ul class="footer-links">
-      {{ range .Site.Menus.footer }}
-      <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-      {{ end }}
-    </ul>
   </div>
 </footer>

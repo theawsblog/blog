@@ -4,91 +4,155 @@
   {{/* ── Hero ─────────────────────────────────── */}}
   <section class="hero">
     <div class="container">
-      <p class="hero-eyebrow">{{ .Site.Params.eyebrow | default "The AWS Community Blog" }}</p>
+      <p class="hero-eyebrow">{{ i18n "hero_eyebrow" | default (.Site.Params.eyebrow | default "The AWS Community Blog") }}</p>
       <h1>
-        {{ with .Site.Params.hero_title }}
-          {{ . | safeHTML }}
-        {{ else }}
-          Where <span class="accent">AWS builders</span><br/>share what they build.
-        {{ end }}
+        {{ i18n "hero_title" | safeHTML }}<br/><span class="typewriter-line"><span id="typewriter" data-phrases="{{ i18n "typewriter_phrases" }}"></span><span class="typewriter-cursor">|</span></span>
       </h1>
-      <p class="hero-desc">{{ .Site.Params.hero_desc | default "Articles, tutorials and insights from the AWS community. Written by cloud engineers, for cloud engineers." }}</p>
+      <p class="hero-desc">{{ i18n "hero_desc" | default (.Site.Params.hero_desc | default "Articles, tutorials and insights from the AWS community. Written by cloud builders, for cloud builders.") }}</p>
       <div class="hero-actions">
-        <a href="{{ "/posts" | relURL }}" class="btn btn-primary">Read the blog →</a>
-        <a href="{{ "/authors" | relURL }}" class="btn btn-outline">Meet the authors</a>
+        <a href="{{ "/posts" | relLangURL }}" class="btn btn-primary" data-umami-event="hero-cta-blog">{{ i18n "hero_cta_blog" }}</a>
+        <a href="{{ "/authors" | relLangURL }}" class="btn btn-outline" data-umami-event="hero-cta-authors">{{ i18n "hero_cta_authors" }}</a>
       </div>
     </div>
   </section>
 
-  {{/* ── Latest Posts ─────────────────────────── */}}
-  <section style="padding: 3.5rem 0 2rem;">
+  {{/* ── Posts + Events Split ─────────────────── */}}
+  {{ $news := where .Site.RegularPages "Section" "news" }}
+  {{ $blogPosts := where .Site.RegularPages "Section" "posts" }}
+  {{ $tutorials := where .Site.RegularPages "Section" "tutorials" }}
+  {{ $allContent := union $news (union $blogPosts $tutorials) }}
+  {{ $allContent = sort $allContent "Date" "desc" }}
+  {{ $allPosts := $allContent | first 9 }}
+  {{ $upcomingEvents := where .Site.RegularPages "Section" "events" }}
+  {{ $upcomingEvents = sort $upcomingEvents "Date" }}
+  <section style="padding: 3.5rem 0 3.5rem;">
     <div class="container">
-      <div class="section-header">
-        <span class="section-title">// latest posts</span>
-        <a href="{{ "/posts" | relURL }}" class="section-link">all posts →</a>
-      </div>
+      <div class="home-split">
 
-      {{ $posts := where .Site.RegularPages "Section" "posts" }}
-      {{ $posts = $posts | first 6 }}
-      {{ if $posts }}
-      <div class="posts-grid">
-        {{ range $posts }}
-        <a href="{{ .RelPermalink }}" class="post-card">
-          <div class="post-card-main">
-            <div class="post-meta">
-              <span class="post-date">{{ .Date.Format "Jan 02, 2006" }}</span>
-              {{ with .Params.author }}
-              <span class="post-author-tag">{{ . }}</span>
-              {{ end }}
-            </div>
-            <h2 class="post-card-title">{{ .Title }}</h2>
-            <p class="post-card-excerpt">{{ .Summary | plainify | truncate 160 }}</p>
-            {{ with .Params.tags }}
-            <div class="post-card-tags">
-              {{ range first 4 . }}
-              <span class="tag">{{ . }}</span>
-              {{ end }}
+        {{/* ── 70% — Latest Posts ─────────────── */}}
+        <div class="home-posts-col">
+          <div class="section-header">
+            <span class="section-title">{{ i18n "section_latest_posts" }}</span>
+            <a href="{{ "/posts" | relLangURL }}" class="section-link" data-umami-event="home-all-posts">{{ i18n "section_all_posts" }}</a>
+          </div>
+          {{ if $allPosts }}
+          <div class="posts-grid" id="home-posts-grid">
+            {{ range $allPosts }}
+            <a href="{{ .RelPermalink }}" class="post-card" data-umami-event="home-post-click" data-umami-event-title="{{ .Title }}">
+              <div class="post-card-main">
+                <div class="post-meta">
+                  <span class="post-date">{{ .Date | time.Format ":date_medium" }}</span>
+                  {{ with .Params.author }}
+                  <span class="post-author-tag">{{ . }}</span>
+                  {{ end }}
+                  {{ $section := .Section }}
+                  {{ if eq $section "news" }}<span class="section-badge section-badge--news">News</span>
+                  {{ else if eq $section "tutorials" }}<span class="section-badge section-badge--tutorials">Tutorial</span>
+                  {{ else if eq $section "posts" }}<span class="section-badge section-badge--posts">Post</span>
+                  {{ end }}
+                </div>
+                <h2 class="post-card-title">{{ .Title }}</h2>
+                {{ $excerpt := .Summary | plainify }}
+                {{ with .Params.description }}{{ $excerpt = . | plainify }}{{ end }}
+                <p class="post-card-excerpt">{{ $excerpt | truncate 280 }}</p>
+                {{ with .Params.tags }}
+                <div class="post-card-tags">
+                  {{ range first 4 . }}
+                  <span class="tag">{{ . }}</span>
+                  {{ end }}
+                </div>
+                {{ end }}
+              </div>
+              <span class="post-card-arrow">→</span>
+            </a>
+            {{ end }}
+          </div>
+          {{ end }}
+        </div>
+
+        {{/* ── 30% — Events Timeline ───────────── */}}
+        <div class="home-events-col">
+          <div class="section-header">
+            <span class="section-title">{{ i18n "section_upcoming_events" }}</span>
+            <a href="{{ "/events" | relLangURL }}" class="section-link" data-umami-event="home-all-events">{{ i18n "section_all_events" }}</a>
+          </div>
+          {{ if $upcomingEvents }}
+          <div class="home-timeline">
+            {{ range $upcomingEvents }}
+            {{ $featured := .Params.featured | default false }}
+            <div class="home-timeline-item{{ if $featured }} home-timeline-item--featured{{ end }}">
+              <a href="{{ .RelPermalink }}" class="home-timeline-card" data-umami-event="home-event-click" data-umami-event-title="{{ .Title }}">
+                <div>
+                  {{ with .Params.event_type }}
+                  <span class="event-type-badge event-type-{{ . | lower | replaceRE "[^a-z]" "-" }}">{{ . }}</span>
+                  {{ end }}
+                </div>
+                <p class="home-timeline-date">{{ .Date | time.Format ":date_medium" }}</p>
+                <p class="home-timeline-title">{{ .Title }}</p>
+                {{ with .Params.location }}
+                <p class="home-timeline-location">📍 {{ . }}</p>
+                {{ end }}
+              </a>
             </div>
             {{ end }}
           </div>
-          <span class="post-card-arrow">→</span>
-        </a>
-        {{ end }}
-      </div>
-      {{ end }}
-    </div>
-  </section>
+          {{ else }}
+          <p class="text-muted font-mono" style="font-size:.85rem">{{ i18n "no_events" }}</p>
+          {{ end }}
+        </div>
 
-  {{/* ── Upcoming Events ──────────────────────── */}}
-  {{ $events := where .Site.RegularPages "Section" "events" }}
-  {{ $upcomingEvents := where $events ".Date" "ge" now }}
-  {{ if $upcomingEvents }}
-  <section style="padding: 2rem 0 3rem;">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-title">// upcoming events</span>
-        <a href="{{ "/events" | relURL }}" class="section-link">all events →</a>
-      </div>
-      <div class="posts-grid">
-        {{ range first 3 ($upcomingEvents | sort "Date") }}
-        <a href="{{ .RelPermalink }}" class="post-card">
-          <div class="post-card-main">
-            <div class="post-meta">
-              <span class="post-date">{{ .Date.Format "Jan 02, 2006" }}</span>
-              {{ with .Params.event_type }}
-              <span class="tag tag--secondary">{{ . }}</span>
-              {{ end }}
-            </div>
-            <h2 class="post-card-title">{{ .Title }}</h2>
-            <p class="post-card-excerpt">{{ .Summary | plainify | truncate 140 }}</p>
-          </div>
-          <span class="post-card-arrow">→</span>
-        </a>
-        {{ end }}
       </div>
     </div>
   </section>
-  {{ end }}
 
 </div>
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+(function () {
+  var el = document.getElementById('typewriter');
+  if (!el) return;
+
+  var phrasesAttr = el.getAttribute('data-phrases');
+  var phrases = phrasesAttr ? phrasesAttr.split('|') : ['share what they build.'];
+
+  var phraseIndex = 0;
+  var charIndex   = 0;
+  var isDeleting  = false;
+
+  var TYPE_SPEED   = 65;
+  var DELETE_SPEED = 35;
+  var PAUSE_AFTER  = 2200;
+  var PAUSE_BEFORE = 380;
+
+  function tick() {
+    var current = phrases[phraseIndex];
+
+    if (!isDeleting) {
+      charIndex++;
+      el.textContent = current.substring(0, charIndex);
+
+      if (charIndex === current.length) {
+        setTimeout(function () { isDeleting = true; tick(); }, PAUSE_AFTER);
+        return;
+      }
+      setTimeout(tick, TYPE_SPEED);
+    } else {
+      charIndex--;
+      el.textContent = current.substring(0, charIndex);
+
+      if (charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        setTimeout(tick, PAUSE_BEFORE);
+        return;
+      }
+      setTimeout(tick, DELETE_SPEED);
+    }
+  }
+
+  setTimeout(tick, 600);
+})();
+</script>
 {{ end }}

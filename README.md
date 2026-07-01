@@ -1,8 +1,32 @@
 # The AWS Blog
 
-A community-driven AWS blog built with [Hugo](https://gohugo.io) and a custom minimal dark theme. Features multi-author profiles, tagged blog posts, and an event timeline.
+A community-driven AWS blog built with [Hugo](https://gohugo.io) and a custom minimal theme. Features News, Posts, Tutorials, multi-author profiles, tagged content, multi-language support, SEO/LLM discovery, and an event timeline.
 
 > **Live site:** [theawsblog.com](https://theawsblog.com)
+
+---
+
+## Content Sections
+
+| Section | URL | Purpose |
+|---------|-----|---------|
+| **News** | `/news/` | AWS news, article summaries, and community updates |
+| **Posts** | `/posts/` | Blog posts, opinions, and publication updates |
+| **Tutorials** | `/tutorials/` | Step-by-step guides for AWS builders |
+| **Events** | `/events/` | Community events and AWS-related timelines |
+
+---
+
+## Documentation
+
+| Doc | Description |
+|-----|-------------|
+| [docs/getting-started.md](docs/getting-started.md) | Prerequisites, installation, and running locally |
+| [docs/content-guide.md](docs/content-guide.md) | Writing posts, news, tutorials, adding authors and events |
+| [docs/theme.md](docs/theme.md) | Theme design, layouts, and customization |
+| [docs/configuration.md](docs/configuration.md) | `hugo.toml` settings reference |
+| [docs/deployment.md](docs/deployment.md) | Deployment guidance |
+| [docs/contributing.md](docs/contributing.md) | How to contribute content and theme changes |
 
 ---
 

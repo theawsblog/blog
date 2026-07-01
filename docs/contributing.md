@@ -1,0 +1,56 @@
+# Contributing
+
+Contributions are welcome — new posts, author profiles, event entries, bug fixes, or theme improvements.
+
+---
+
+## Adding Content
+
+1. **Fork** the repository and clone your fork
+2. **Create a branch:**
+   ```bash
+   git checkout -b my-new-post
+   ```
+3. **Create your content** using Hugo's archetypes (see [Content Guide](content-guide.md)):
+   ```bash
+   # News post
+   hugo new news/my-post.md
+   # Tutorial
+   hugo new tutorials/my-tutorial.md
+   # Meta-blog post
+   hugo new posts/my-post.md
+   ```
+4. **Preview locally:**
+   ```bash
+   hugo server -D -F
+   ```
+5. **Commit and push:**
+   ```bash
+   git add .
+   git commit -m "feat(news): add my post title"
+   # or: feat(tutorials): / feat(posts):
+   git push origin my-new-post
+   ```
+6. **Open a Pull Request** against `main`
+
+---
+
+## Content Guidelines
+
+- Write in clear, accessible English
+- Use fenced code blocks with a language identifier (e.g., ` ```csharp `)
+- Keep `description` under 200 characters
+- Tag posts with relevant terms — check existing tags at `/tags`
+- Test locally before submitting (`hugo --gc --minify` must succeed with no errors)
+
+---
+
+## Theme Changes
+
+If you're modifying the theme:
+
+- CSS lives in `themes/aws-minimal/static/css/style.css`
+- Templates live in `themes/aws-minimal/layouts/`
+- Test on both desktop and mobile viewport sizes
+- Confirm the site builds cleanly: `hugo --gc --minify`
+

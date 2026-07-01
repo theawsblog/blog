@@ -1,11 +1,86 @@
 baseURL = "https://theawsblog.com"
-languageCode = "en-us"
 title = "The AWS Blog"
 theme = "aws-minimal"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+enableMissingTranslationPlaceholders = false
 paginate = 10
 enableRobotsTXT = true
-enableGitInfo = false
+enableGitInfo = true
 summaryLength = 70
+buildFuture = false
+
+[languages]
+  [languages.en]
+    languageCode = "en-us"
+    languageName = "English"
+    weight = 1
+  [languages.es]
+    languageCode = "es"
+    languageName = "Español"
+    weight = 2
+  [languages.ca]
+    languageCode = "ca-es"
+    languageName = "Català"
+    weight = 2.5
+  [languages.de]
+    languageCode = "de"
+    languageName = "Deutsch"
+    weight = 3
+  [languages.fr]
+    languageCode = "fr"
+    languageName = "Français"
+    weight = 4
+  [languages.pt]
+    languageCode = "pt"
+    languageName = "Português"
+    weight = 5
+  [languages.it]
+    languageCode = "it"
+    languageName = "Italiano"
+    weight = 6
+  [languages.ja]
+    languageCode = "ja"
+    languageName = "日本語"
+    weight = 7
+  [languages.zh]
+    languageCode = "zh"
+    languageName = "中文"
+    weight = 8
+  [languages.ko]
+    languageCode = "ko"
+    languageName = "한국어"
+    weight = 9
+  [languages.ru]
+    languageCode = "ru"
+    languageName = "Русский"
+    weight = 10
+  [languages.hi]
+    languageCode = "hi"
+    languageName = "हिन्दी"
+    weight = 11
+  [languages.pl]
+    languageCode = "pl"
+    languageName = "Polski"
+    weight = 12
+  [languages.tr]
+    languageCode = "tr"
+    languageName = "Türkçe"
+    weight = 13
+  [languages.ar]
+    languageCode = "ar"
+    languageName = "العربية"
+    weight = 14
+    [languages.ar.params]
+      dir = "rtl"
+  [languages.id]
+    languageCode = "id"
+    languageName = "Bahasa Indonesia"
+    weight = 15
+  [languages.nl]
+    languageCode = "nl"
+    languageName = "Nederlands"
+    weight = 16
 
 [markup]
   [markup.highlight]
@@ -18,39 +93,100 @@ summaryLength = 70
 [taxonomies]
   tag = "tags"
 
+[outputFormats]
+  [outputFormats.llmstxt]
+    mediaType = "text/plain"
+    baseName = "llms"
+    isPlainText = true
+    notAlternative = true
+  [outputFormats.llmsfulltxt]
+    mediaType = "text/plain"
+    baseName = "llms-full"
+    isPlainText = true
+    notAlternative = true
+
+[outputs]
+  home = ["HTML", "RSS", "llmstxt", "llmsfulltxt"]
+
+[sitemap]
+  changeFreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
 [params]
   description = "Articles, tutorials and insights from the AWS community."
+  homeTitle = "The AWS Blog · AWS, Cloud, AI, and Serverless Tutorials"
   eyebrow = "The AWS Community Blog"
-  hero_title = "Where <span class=\"accent\">AWS builders</span><br/>share what they build."
+  hero_title = "Where <span class=\"accent\">AWS builders</span>"
   hero_desc = "Deep dives, tutorials and community stories — written by cloud engineers, for cloud engineers."
+
+  defaultImage = "/img/og-default.png"
+  logo = "/img/og-default.png"
+  twitter = "theawsblog"
+  socialProfiles = [
+    "https://github.com/theawsblog/blog",
+    "https://x.com/theawsblog"
+  ]
+
+  [params.umami]
+    enabled = false
+    websiteId = ""
+    src = "https://analytics.emilianomontesdeoca.com/script.js"
 
 [menus]
   [[menus.main]]
-    name = "posts"
-    url = "/posts"
+    identifier = "news"
+    name = "news"
+    url = "/news"
     weight = 1
   [[menus.main]]
-    name = "events"
-    url = "/events"
+    identifier = "posts"
+    name = "posts"
+    url = "/posts"
     weight = 2
   [[menus.main]]
-    name = "authors"
-    url = "/authors"
+    identifier = "tutorials"
+    name = "tutorials"
+    url = "/tutorials"
     weight = 3
   [[menus.main]]
+    identifier = "events"
+    name = "events"
+    url = "/events"
+    weight = 4
+  [[menus.main]]
+    identifier = "authors"
+    name = "authors"
+    url = "/authors"
+    weight = 5
+  [[menus.main]]
+    identifier = "tags"
     name = "tags"
     url = "/tags"
-    weight = 4
+    weight = 6
 
   [[menus.footer]]
-    name = "posts"
-    url = "/posts"
+    identifier = "news"
+    name = "news"
+    url = "/news"
     weight = 1
   [[menus.footer]]
-    name = "events"
-    url = "/events"
+    identifier = "posts"
+    name = "posts"
+    url = "/posts"
     weight = 2
   [[menus.footer]]
+    identifier = "tutorials"
+    name = "tutorials"
+    url = "/tutorials"
+    weight = 3
+  [[menus.footer]]
+    identifier = "events"
+    name = "events"
+    url = "/events"
+    weight = 4
+  [[menus.footer]]
+    identifier = "authors"
     name = "authors"
     url = "/authors"
-    weight = 3
+    weight = 5

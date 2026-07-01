@@ -1,0 +1,184 @@
+[nav_contribute]
+other = "contribute"
+
+
+
+[nav_events]
+other = "events"
+
+[nav_authors]
+other = "authors"
+
+[nav_tags]
+other = "tags"
+
+# ── Homepage ──
+[hero_eyebrow]
+other = "The AWS Community Blog"
+
+[hero_title]
+other = "Where <span class=\"accent\">AWS builders</span>"
+
+[hero_desc]
+other = "Deep dives, tutorials and community stories — written by cloud engineers, for cloud engineers."
+
+[typewriter_phrases]
+other = "share what they build.|learn from each other.|ship faster on AWS.|build serverless systems.|design resilient architectures.|explore AI.|secure cloud workloads.|level up together.|automate infrastructure.|push the cloud forward."
+
+[hero_cta_blog]
+other = "Read the blog →"
+
+[hero_cta_authors]
+other = "Meet the authors"
+
+[section_latest_posts]
+other = "// latest posts"
+
+[section_all_posts]
+other = "all posts →"
+
+[section_upcoming_events]
+other = "// upcoming events"
+
+[section_all_events]
+other = "all events →"
+
+[no_events]
+other = "// no upcoming events."
+
+[load_more_posts]
+other = "Load more posts ↓"
+
+# ── Posts ──
+[posts_page_eyebrow]
+other = "// posts"
+
+[posts_page_title]
+other = "Posts"
+
+[no_posts]
+other = "// no posts yet — check back soon."
+
+[min_read]
+other = "minutes read"
+
+[share_label]
+other = "Share:"
+
+[view_source]
+other = "View source code for this post on GitHub ↗"
+
+# ── Authors ──
+[authors_page_eyebrow]
+other = "// authors"
+
+[authors_page_title]
+other = "Meet the Authors"
+
+[authors_page_desc]
+other = "The people behind The AWS Blog."
+
+[posts_by]
+other = "// posts by {{ .Name }}"
+
+[posts_count]
+one = "{{ .Count }} post"
+other = "{{ .Count }} posts"
+
+[posts_published]
+other = "published"
+
+[no_author_posts]
+other = "// no posts published yet."
+
+[view_author_source]
+other = "View source code for this author page on GitHub ↗"
+
+# ── Events ──
+[events_page_eyebrow]
+other = "// events"
+
+[events_page_title]
+other = "Community Events"
+
+[events_page_desc]
+other = "Conferences, meetups, webinars and releases — on one timeline."
+
+[no_events_scheduled]
+other = "// no events scheduled yet."
+
+[all_events_link]
+other = "← All events"
+
+[view_event_source]
+other = "View source code for this event on GitHub ↗"
+
+# ── Tags ──
+[tags_page_eyebrow]
+other = "// tags"
+
+[tags_page_title]
+other = "All Tags"
+
+[tag_eyebrow]
+other = "// tag"
+
+[all_tags_link]
+other = "← All tags"
+
+# ── Footer ──
+[footer_copy]
+other = "From developers to developers"
+
+# ── Translations ──
+[translation_available]
+other = "This post is also available in:"
+
+[translation_notice]
+other = "This post was automatically translated."
+
+[translation_original]
+other = "Read the original"
+
+# ── Language Selector ──
+[language_label]
+other = "Language"
+
+# ── Contribute ──
+[contribute_page_eyebrow]
+other = "// contribute"
+
+[contribute_page_title]
+other = "Write for The AWS Blog"
+
+[contribute_page_desc]
+other = "Share your knowledge with the AWS community."
+
+# ── News ──
+[nav_news]
+other = "news"
+
+[nav_posts]
+other = "posts"
+
+[nav_tutorials]
+other = "tutorials"
+
+[news_page_eyebrow]
+other = "// news"
+
+[news_page_title]
+other = "News"
+
+[no_news]
+other = "// no news yet — check back soon."
+
+# ── Tutorials ──
+[tutorials_page_eyebrow]
+other = "// tutorials"
+
+[tutorials_page_title]
+other = "Tutorials"
+
+[no_tutorials]
+other = "// no tutorials yet — check back soon."

@@ -1,0 +1,37 @@
+{{ define "main" }}
+<div class="container">
+
+  <div class="page-header">
+    <p class="eyebrow">{{ i18n "tag_eyebrow" }}</p>
+    <h1>#{{ .Title }}</h1>
+    <p style="color:var(--text-dim);margin-top:.5rem;font-family:var(--font-mono);font-size:.85rem">
+      {{ len .Pages }} post{{ if ne (len .Pages) 1 }}s{{ end }}
+    </p>
+  </div>
+
+  {{ if .Pages }}
+  <div class="posts-grid">
+    {{ range .Pages }}
+    <a href="{{ .RelPermalink }}" class="post-card" data-umami-event="tagged-post-click" data-umami-event-title="{{ .Title }}">
+      <div class="post-card-main">
+        <div class="post-meta">
+          <span class="post-date">{{ .Date | time.Format ":date_medium" }}</span>
+          {{ with .Params.author }}<span class="post-author-tag">{{ . }}</span>{{ end }}
+        </div>
+        <h2 class="post-card-title">{{ .Title }}</h2>
+        {{ $excerpt := .Summary | plainify }}
+        {{ with .Params.description }}{{ $excerpt = . | plainify }}{{ end }}
+        <p class="post-card-excerpt">{{ $excerpt | truncate 280 }}</p>
+      </div>
+      <span class="post-card-arrow">→</span>
+    </a>
+    {{ end }}
+  </div>
+  {{ end }}
+
+  <div style="margin-top:2.5rem">
+    <a href="{{ "/tags" | relLangURL }}" class="btn btn-outline" data-umami-event="all-tags-link">{{ i18n "all_tags_link" }}</a>
+  </div>
+
+</div>
+{{ end }}

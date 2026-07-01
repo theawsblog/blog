@@ -2,9 +2,9 @@
 <div class="container">
 
   <div class="page-header">
-    <p class="eyebrow">// authors</p>
-    <h1>Meet the Authors</h1>
-    <p style="color:var(--text-dim);margin-top:.6rem">The people behind {{ .Site.Title }}.</p>
+    <p class="eyebrow">{{ i18n "authors_page_eyebrow" }}</p>
+    <h1>{{ i18n "authors_page_title" }}</h1>
+    <p style="color:var(--text-dim);margin-top:.6rem">{{ i18n "authors_page_desc" }}</p>
   </div>
 
   {{ $authors := .Pages }}
@@ -12,12 +12,12 @@
   <div class="authors-grid">
     {{ range $authors }}
     {{ $authorPosts := where $.Site.RegularPages "Params.author" .Title }}
-    <a href="{{ .RelPermalink }}" style="text-decoration:none">
+    <a href="{{ .RelPermalink }}" style="text-decoration:none" data-umami-event="author-card-click" data-umami-event-author="{{ .Title }}">
       <div class="author-card">
         <div class="author-card-top">
           {{ $avatarPath := .Params.avatar }}
           {{ if $avatarPath }}
-          <img src="{{ $avatarPath }}" alt="{{ .Title }}" class="avatar" />
+          <img src="{{ $avatarPath }}" alt="{{ .Title }}" class="avatar" width="64" height="64" loading="lazy" />
           {{ else }}
           <div class="avatar-placeholder">{{ substr .Title 0 1 }}</div>
           {{ end }}
@@ -37,14 +37,14 @@
         </div>
         {{ end }}
         <div class="author-post-count">
-          <span>{{ len $authorPosts }}</span> post{{ if ne (len $authorPosts) 1 }}s{{ end }} published
+          <span>{{ len $authorPosts }}</span> {{ i18n "posts_published" }}
         </div>
       </div>
     </a>
     {{ end }}
   </div>
   {{ else }}
-  <p class="text-muted font-mono">// no authors yet.</p>
+  <p class="text-muted font-mono">{{ i18n "no_author_posts" }}</p>
   {{ end }}
 
 </div>
