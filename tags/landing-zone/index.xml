@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Landing-Zone | The AWS Blog</title><link>https://theawsblog.com/tags/landing-zone/</link><description>Articles, tutorials and insights from the AWS community.</description><generator>Hugo</generator><language>en</language><managingEditor>@theawsblog (The AWS Blog)</managingEditor><webMaster>@theawsblog</webMaster><lastBuildDate>Mon, 13 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://theawsblog.com/tags/landing-zone/index.xml" rel="self" type="application/rss+xml"/><item><title>Landing zone automation still needs human approval and operating model clarity</title><link>https://theawsblog.com/news/emiliano-montesdeoca/aws-transform-landing-zone-automation/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate><author>Emiliano Montesdeoca</author><guid>https://theawsblog.com/news/emiliano-montesdeoca/aws-transform-landing-zone-automation/</guid><description>AWS Transform landing zone automation can compress foundation setup, but builders still need clear account strategy, guardrails, cost ownership, and approval workflows.</description><content:encoded>&lt;p&gt;A landing zone is not just a deployment artifact. It is the operating model for how teams will use AWS.&lt;/p&gt;
+&lt;p&gt;The AWS Migration &amp;amp; Modernization Blog post on &lt;a href="https://aws.amazon.com/blogs/migration-and-modernization/automate-your-landing-zone-creation-with-aws-transform/"&gt;automating landing zone creation with AWS Transform&lt;/a&gt; shows how AWS Transform can help design and provision a multi-account foundation using context from migration planning.&lt;/p&gt;
+&lt;p&gt;That can speed up a painful process, but only if teams remember what a landing zone represents.&lt;/p&gt;
+&lt;h2 id="what-changed"&gt;What changed&lt;/h2&gt;
+&lt;p&gt;The source article describes a landing zone agent that works through natural-language conversation and migration context. It can help establish AWS Control Tower, organizational units, accounts, guardrails, logging accounts, audit accounts, and service control policies.&lt;/p&gt;
+&lt;p&gt;It also maps workload accounts to migration wave context and includes human approval before changes are deployed.&lt;/p&gt;
+&lt;p&gt;The useful part is continuity. Foundation design is connected to migration planning instead of being a separate project that later needs translation.&lt;/p&gt;
+&lt;h2 id="why-builders-should-care"&gt;Why builders should care&lt;/h2&gt;
+&lt;p&gt;Many migrations slow down before the first workload moves. The organization needs accounts, identity, logging, networking, guardrails, cost allocation, and security baselines. That requires coordination across platform, security, finance, application, and migration teams.&lt;/p&gt;
+&lt;p&gt;If AWS Transform can compress the design and deployment loop from weeks to days, the business impact is real. But speed is useful only if the resulting foundation is understandable and maintainable.&lt;/p&gt;
+&lt;h2 id="the-trade-offs"&gt;The trade-offs&lt;/h2&gt;
+&lt;p&gt;Automation can generate a landing zone, but it cannot decide the organization&amp;rsquo;s accountability model.&lt;/p&gt;
+&lt;p&gt;Humans still need to answer:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;How are business units mapped to OUs?&lt;/li&gt;
+&lt;li&gt;Which workloads require separate accounts?&lt;/li&gt;
+&lt;li&gt;Which controls are preventive versus detective?&lt;/li&gt;
+&lt;li&gt;Who approves exceptions?&lt;/li&gt;
+&lt;li&gt;How are costs allocated?&lt;/li&gt;
+&lt;li&gt;How are shared services owned?&lt;/li&gt;
+&lt;li&gt;How will the account structure evolve after migration?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A landing zone that matches the migration wave plan but ignores future product ownership will create problems later.&lt;/p&gt;
+&lt;h2 id="what-to-do-next"&gt;What to do next&lt;/h2&gt;
+&lt;p&gt;Use automated landing zone design as a proposal generator, not as an autopilot.&lt;/p&gt;
+&lt;p&gt;Review the generated structure with platform, security, finance, and application owners. Validate SCPs against real deployment needs. Confirm account email conventions, logging retention, identity integration, network topology, and cost allocation tags before provisioning.&lt;/p&gt;
+&lt;p&gt;Then document the operating model next to the architecture: who creates accounts, who approves exceptions, who owns guardrails, and how teams request changes.&lt;/p&gt;
+&lt;p&gt;The practical takeaway: AWS Transform can accelerate landing zone creation, but the quality of the landing zone still depends on clear governance decisions. Automate the mechanics; keep ownership explicit.&lt;/p&gt;</content:encoded></item></channel></rss>

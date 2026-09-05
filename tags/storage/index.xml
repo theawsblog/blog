@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Storage | The AWS Blog</title><link>https://theawsblog.com/tags/storage/</link><description>Articles, tutorials and insights from the AWS community.</description><generator>Hugo</generator><language>en</language><managingEditor>@theawsblog (The AWS Blog)</managingEditor><webMaster>@theawsblog</webMaster><lastBuildDate>Fri, 26 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://theawsblog.com/tags/storage/index.xml" rel="self" type="application/rss+xml"/><item><title>S3 Storage Lens groups make storage cost conversations less generic</title><link>https://theawsblog.com/news/emiliano-montesdeoca/s3-storage-lens-groups-cost-visibility/</link><pubDate>Fri, 26 Jun 2026 00:00:00 +0000</pubDate><author>Emiliano Montesdeoca</author><guid>https://theawsblog.com/news/emiliano-montesdeoca/s3-storage-lens-groups-cost-visibility/</guid><description>Amazon S3 Storage Lens groups help teams inspect storage by workload-specific criteria, making cost, lifecycle, and data hygiene work more actionable.</description><content:encoded>&lt;p&gt;Storage optimization advice often starts too broadly: reduce old data, review access patterns, apply lifecycle policies. That is true, but it is not specific enough for a team to act.&lt;/p&gt;
+&lt;p&gt;The AWS Storage Blog post on &lt;a href="https://aws.amazon.com/blogs/storage/create-custom-storage-groupings-with-amazon-s3-storage-lens-groups/"&gt;S3 Storage Lens groups&lt;/a&gt; is useful because it shows how to group storage by workload-specific criteria instead of looking only at account or bucket totals.&lt;/p&gt;
+&lt;h2 id="what-changed"&gt;What changed&lt;/h2&gt;
+&lt;p&gt;S3 Storage Lens groups let builders define custom groupings and analyze metrics for targeted slices of S3 data. The source article uses examples such as older application logs and aging image files across multiple buckets and accounts.&lt;/p&gt;
+&lt;p&gt;That matters because the useful unit of storage ownership is rarely just a bucket. It may be an application, dataset, tenant, media type, compliance class, or product feature.&lt;/p&gt;
+&lt;h2 id="why-builders-should-care"&gt;Why builders should care&lt;/h2&gt;
+&lt;p&gt;S3 cost and hygiene problems are usually ownership problems.&lt;/p&gt;
+&lt;p&gt;A central cloud team can see that storage is growing. They may not know which logs are safe to expire, which images are user-generated content, which datasets are legally retained, or which prefixes belong to an old migration. Application teams know the context, but they often lack cross-account visibility.&lt;/p&gt;
+&lt;p&gt;Storage Lens groups can bridge that gap. They help create a view that says, &amp;ldquo;this workload has 40 TB of logs older than 180 days,&amp;rdquo; not just &amp;ldquo;this account has 400 TB in S3.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;That turns a generic optimization request into a practical backlog item.&lt;/p&gt;
+&lt;h2 id="the-trade-offs"&gt;The trade-offs&lt;/h2&gt;
+&lt;p&gt;Custom groups are only useful if the grouping logic reflects real ownership and lifecycle rules. If tags, prefixes, naming conventions, or account boundaries are inconsistent, the dashboard can give false confidence.&lt;/p&gt;
+&lt;p&gt;Teams should avoid building too many groups at once. Start with questions that lead to action:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Which data can move to a colder tier?&lt;/li&gt;
+&lt;li&gt;Which prefixes have no recent access?&lt;/li&gt;
+&lt;li&gt;Which workloads are growing faster than expected?&lt;/li&gt;
+&lt;li&gt;Which buckets contain small-object patterns that inflate request costs?&lt;/li&gt;
+&lt;li&gt;Which teams own the largest retained datasets?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Also remember that visibility is not enforcement. Storage Lens can show the opportunity, but lifecycle rules, retention policies, and application changes implement the fix.&lt;/p&gt;
+&lt;h2 id="what-to-do-next"&gt;What to do next&lt;/h2&gt;
+&lt;p&gt;Pick one high-cost storage area and define a group around the way the business thinks about it. For example: production application logs older than 90 days, media originals by product, or export datasets by tenant.&lt;/p&gt;
+&lt;p&gt;Then review the metrics with the owning team and decide on one action: lifecycle transition, deletion after retention, object compaction, prefix redesign, or access pattern review.&lt;/p&gt;
+&lt;p&gt;The practical value of Storage Lens groups is not better charts. It is better conversations between platform, finance, security, and application teams about the specific data that is driving cost and risk.&lt;/p&gt;</content:encoded></item></channel></rss>

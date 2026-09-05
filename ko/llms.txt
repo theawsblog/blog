@@ -1,0 +1,27 @@
+# The AWS Blog
+
+> Articles, tutorials and insights from the AWS community.
+
+The AWS Blog is a community-driven publication featuring articles, tutorials, and deep dives on AWS, cloud architecture, serverless, containers, data, security, AI, and software engineering. Written by cloud builders, for cloud builders.
+
+## Metadata
+
+- URL: https://theawsblog.com/
+- Language: ko
+- Last Updated: 2026-09-05
+
+## Blog Posts
+
+## Events
+- No events published yet.
+
+## Authors
+
+## Topics
+This blog currently has no tagged topics.
+
+## Optional
+
+- [Full content version](https://theawsblog.com/llms-full.txt)
+- [Sitemap](https://theawsblog.com/sitemap.xml)
+- [RSS Feed](https://theawsblog.com/index.xml)

@@ -1,0 +1,32 @@
+# The AWS Blog — Full Content
+
+> Articles, tutorials and insights from the AWS community.
+
+The AWS Blog is a community-driven publication featuring articles, tutorials, and deep dives on AWS, cloud architecture, serverless, containers, data, security, AI, and software engineering. Written by cloud builders, for cloud builders.
+
+## Metadata
+
+- **URL**: https://theawsblog.com/
+- **Language**: en
+- **Last Updated**: 2026-09-05
+
+---
+
+## Events
+- No events published yet.
+
+---
+
+## Authors
+### Emiliano Montesdeoca
+
+- **URL**: https://theawsblog.com/authors/emiliano-montesdeoca/
+- **Role**: Cloud Solutions Team Lead & Community Builder
+- **Bio**: Emiliano is an Uruguayan-Spanish software developer and community advocate based in Tenerife, Canary Islands.
+
+He specializes in architecting scalable cloud solutions and translates real-world cloud, AI, and platform engineering work into practical guidance for builders.
+
+On The AWS Blog, he focuses on clear, actionable articles for teams building, operating, and modernizing workloads on AWS.
+
+
+---

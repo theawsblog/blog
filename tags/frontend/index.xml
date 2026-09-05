@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Frontend | The AWS Blog</title><link>https://theawsblog.com/tags/frontend/</link><description>Articles, tutorials and insights from the AWS community.</description><generator>Hugo</generator><language>en</language><managingEditor>@theawsblog (The AWS Blog)</managingEditor><webMaster>@theawsblog</webMaster><lastBuildDate>Fri, 17 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://theawsblog.com/tags/frontend/index.xml" rel="self" type="application/rss+xml"/><item><title>Agent UIs need protocols, not only chat boxes</title><link>https://theawsblog.com/news/emiliano-montesdeoca/agentcore-agui-generative-ui/</link><pubDate>Fri, 17 Jul 2026 00:00:00 +0000</pubDate><author>Emiliano Montesdeoca</author><guid>https://theawsblog.com/news/emiliano-montesdeoca/agentcore-agui-generative-ui/</guid><description>AG-UI with Amazon Bedrock AgentCore shows how agent frontends can support generative UI, shared state, and human-in-the-loop workflows without coupling every frontend to one agent framework.</description><content:encoded>&lt;p&gt;A chat box is not enough for many agent workflows. Agents need to show charts, update state, ask for approval, stream intermediate results, and let users steer the task while it is running.&lt;/p&gt;
+&lt;p&gt;The AWS Machine Learning Blog post on &lt;a href="https://aws.amazon.com/blogs/machine-learning/build-generative-ui-for-ai-agents-on-amazon-bedrock-agentcore-with-the-ag-ui-protocol/"&gt;building generative UI for AI agents on Amazon Bedrock AgentCore with AG-UI&lt;/a&gt; is useful because it treats agent user experience as a protocol problem.&lt;/p&gt;
+&lt;h2 id="what-changed"&gt;What changed&lt;/h2&gt;
+&lt;p&gt;AG-UI defines a standard event protocol between agent backends and frontends. The source article shows AG-UI running with Amazon Bedrock AgentCore Runtime, the FAST starter template, Strands Agents, LangGraph, Cognito, Amplify, and CopilotKit.&lt;/p&gt;
+&lt;p&gt;The important idea is decoupling. The frontend should not need to know every detail of the agent framework. The agent should emit structured UI events that the frontend can render consistently.&lt;/p&gt;
+&lt;h2 id="why-builders-should-care"&gt;Why builders should care&lt;/h2&gt;
+&lt;p&gt;As agents move beyond Q&amp;amp;A, the UI becomes part of the system&amp;rsquo;s reliability and trust model.&lt;/p&gt;
+&lt;p&gt;A human approval step should be explicit. A generated chart should be tied to data. A shared todo canvas should update predictably. A long-running agent should expose progress instead of leaving the user guessing.&lt;/p&gt;
+&lt;p&gt;Protocols like AG-UI can make those interactions more portable across frameworks and frontends.&lt;/p&gt;
+&lt;h2 id="the-trade-offs"&gt;The trade-offs&lt;/h2&gt;
+&lt;p&gt;Generative UI introduces new failure modes. The agent can request the wrong component, produce inconsistent state, or ask for approval without enough context. Frontends need validation, permissions, and safe rendering rules.&lt;/p&gt;
+&lt;p&gt;Builders should define which UI events are allowed, which components are trusted, and how user actions flow back to the agent. Treat UI actions like tool calls: validate inputs, authorize state changes, and log important decisions.&lt;/p&gt;
+&lt;p&gt;Also avoid overbuilding. Some agents only need text. Use generative UI when interaction complexity justifies it.&lt;/p&gt;
+&lt;h2 id="what-to-do-next"&gt;What to do next&lt;/h2&gt;
+&lt;p&gt;Review agent workflows and identify where plain chat creates friction:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;approval gates,&lt;/li&gt;
+&lt;li&gt;charts or tables,&lt;/li&gt;
+&lt;li&gt;editing structured state,&lt;/li&gt;
+&lt;li&gt;multi-step progress,&lt;/li&gt;
+&lt;li&gt;choosing between alternatives,&lt;/li&gt;
+&lt;li&gt;reviewing generated artifacts.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Those are good candidates for AG-UI-style events.&lt;/p&gt;
+&lt;p&gt;The practical takeaway: the next generation of agent applications will need richer interaction contracts. A protocol boundary between agent logic and frontend rendering makes that easier to build and safer to operate.&lt;/p&gt;</content:encoded></item></channel></rss>

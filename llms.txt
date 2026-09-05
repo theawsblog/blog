@@ -1,0 +1,123 @@
+# The AWS Blog
+
+> Articles, tutorials and insights from the AWS community.
+
+The AWS Blog is a community-driven publication featuring articles, tutorials, and deep dives on AWS, cloud architecture, serverless, containers, data, security, AI, and software engineering. Written by cloud builders, for cloud builders.
+
+## Metadata
+
+- URL: https://theawsblog.com/
+- Language: en
+- Last Updated: 2026-09-05
+
+## Blog Posts
+
+## Events
+- No events published yet.
+
+## Authors
+- [Emiliano Montesdeoca](https://theawsblog.com/authors/emiliano-montesdeoca/): Cloud Solutions Team Lead & Community Builder — Emiliano is an Uruguayan-Spanish software developer and community advocate based in Tenerife, Canary Islands.
+
+He specializes in architecting scalable cloud solutions and translates real-world cloud, AI, and platform engineering work into practical guidance for builders.
+
+On The AWS Blog, he focuses on clear, actionable articles for teams building, operating, and modernizing workloads on AWS.
+
+
+## Topics
+This blog covers the following topics (with post count):
+- acm (2 posts)
+- agentcore (3 posts)
+- agents (2 posts)
+- ai (16 posts)
+- analytics (1 post)
+- app-sync (1 post)
+- architecture (4 posts)
+- aurora (2 posts)
+- authentication (1 post)
+- automation (1 post)
+- aws (47 posts)
+- aws-backup (1 post)
+- aws-transform (2 posts)
+- bedrock (10 posts)
+- capacity-planning (1 post)
+- cdk (1 post)
+- cloud-strategy (1 post)
+- cloudformation (2 posts)
+- cloudwatch (2 posts)
+- compute (2 posts)
+- contact-center (1 post)
+- containers (1 post)
+- cost-optimization (4 posts)
+- data (1 post)
+- data-engineering (1 post)
+- data-governance (1 post)
+- data-perimeter (1 post)
+- data-protection (1 post)
+- database (2 posts)
+- developer-experience (1 post)
+- developer-tools (2 posts)
+- devops (6 posts)
+- devsecops (1 post)
+- disaster-recovery (2 posts)
+- dotnet (3 posts)
+- dsql (1 post)
+- ebs (1 post)
+- ec2 (4 posts)
+- ecs (1 post)
+- eks (2 posts)
+- elasticache (1 post)
+- frontend (1 post)
+- governance (2 posts)
+- gpu (1 post)
+- graviton (1 post)
+- hybrid (1 post)
+- iac (2 posts)
+- iam (1 post)
+- incident-response (2 posts)
+- kubernetes (2 posts)
+- lake-formation (1 post)
+- lakehouse (1 post)
+- lambda (6 posts)
+- landing-zone (1 post)
+- llm (1 post)
+- machine-learning (1 post)
+- mcp (2 posts)
+- migration (3 posts)
+- model-evaluation (1 post)
+- modernization (4 posts)
+- multitenancy (1 post)
+- networking (1 post)
+- observability (3 posts)
+- open-source (1 post)
+- opensearch (1 post)
+- opentelemetry (1 post)
+- operations (9 posts)
+- organizations (1 post)
+- performance (2 posts)
+- pgvector (1 post)
+- platform-engineering (1 post)
+- postgresql (1 post)
+- rag (1 post)
+- redshift (1 post)
+- reliability (3 posts)
+- resilience (1 post)
+- s3 (5 posts)
+- sagemaker (1 post)
+- scalability (1 post)
+- search (1 post)
+- security (12 posts)
+- serverless (7 posts)
+- servicenow (1 post)
+- step-functions (1 post)
+- storage (1 post)
+- tls (2 posts)
+- valkey (1 post)
+- verified-permissions (1 post)
+- voice-ai (1 post)
+- vulnerability-management (1 post)
+
+## Optional
+
+- [Full content version](https://theawsblog.com/llms-full.txt)
+- [Sitemap](https://theawsblog.com/sitemap.xml)
+- [RSS Feed](https://theawsblog.com/index.xml)

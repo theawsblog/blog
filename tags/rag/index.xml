@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Rag | The AWS Blog</title><link>https://theawsblog.com/tags/rag/</link><description>Articles, tutorials and insights from the AWS community.</description><generator>Hugo</generator><language>en</language><managingEditor>@theawsblog (The AWS Blog)</managingEditor><webMaster>@theawsblog</webMaster><lastBuildDate>Tue, 14 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://theawsblog.com/tags/rag/index.xml" rel="self" type="application/rss+xml"/><item><title>Secure multi-tenant RAG needs authorization at retrieval time</title><link>https://theawsblog.com/news/emiliano-montesdeoca/secure-multitenant-rag-bedrock-verified-permissions/</link><pubDate>Tue, 14 Jul 2026 00:00:00 +0000</pubDate><author>Emiliano Montesdeoca</author><guid>https://theawsblog.com/news/emiliano-montesdeoca/secure-multitenant-rag-bedrock-verified-permissions/</guid><description>AWS shows how Amazon Bedrock Knowledge Bases and Verified Permissions can enforce runtime document access for intra-tenant RAG applications without duplicating every knowledge base.</description><content:encoded>&lt;p&gt;RAG security is not solved when the documents are ingested. It is solved when the right user retrieves the right document at the right time.&lt;/p&gt;
+&lt;p&gt;The AWS Architecture Blog post on &lt;a href="https://aws.amazon.com/blogs/architecture/secure-multi-tenant-rag-with-amazon-bedrock-and-verified-permissions/"&gt;secure multi-tenant RAG with Amazon Bedrock and Verified Permissions&lt;/a&gt; is useful because it focuses on runtime authorization. The pattern uses a shared Bedrock knowledge base with metadata filtering, while Amazon Verified Permissions decides which filter should be applied for the current user.&lt;/p&gt;
+&lt;p&gt;That is a practical middle ground for enterprises that need department-level access control inside one organization.&lt;/p&gt;
+&lt;h2 id="what-changed"&gt;What changed&lt;/h2&gt;
+&lt;p&gt;The source article describes a defense-in-depth pattern for intra-tenant RAG. Instead of hardcoding retrieval filters in application code, the application evaluates Cedar policies in Verified Permissions and constructs the metadata filter passed to the Bedrock retrieve-and-generate flow.&lt;/p&gt;
+&lt;p&gt;That means access rules can change without redeploying the application. It also means authorization decisions can be audited outside the application code.&lt;/p&gt;
+&lt;h2 id="why-builders-should-care"&gt;Why builders should care&lt;/h2&gt;
+&lt;p&gt;Many internal RAG systems start with a simple permission model: each department gets a folder, each folder maps to a filter, and the app passes the filter during retrieval. That works until executives need cross-department access, project teams form, policies change, or audit teams ask where decisions are recorded.&lt;/p&gt;
+&lt;p&gt;Externalized authorization helps because access logic becomes a policy layer, not a code branch.&lt;/p&gt;
+&lt;h2 id="the-trade-offs"&gt;The trade-offs&lt;/h2&gt;
+&lt;p&gt;The source article is clear about an important boundary: this is logical isolation, not hard infrastructure isolation. A shared knowledge base with metadata filters is not the same as a separate knowledge base per customer, account, or compliance boundary.&lt;/p&gt;
+&lt;p&gt;Use this pattern when users are inside the same tenant or organization and the goal is department, role, or project-level control. Do not use it as the only boundary between separate customers where a filter bug would create a regulatory incident.&lt;/p&gt;
+&lt;p&gt;Also design for failure. If the authorization service is unavailable, the safe default should be deny, not retrieve broadly.&lt;/p&gt;
+&lt;h2 id="what-to-do-next"&gt;What to do next&lt;/h2&gt;
+&lt;p&gt;Before building a RAG app, classify the isolation requirement:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;same organization, department-level permissions,&lt;/li&gt;
+&lt;li&gt;separate business units with strong governance needs,&lt;/li&gt;
+&lt;li&gt;external customers requiring hard tenant isolation,&lt;/li&gt;
+&lt;li&gt;regulated data requiring infrastructure separation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Then choose the architecture. A shared knowledge base plus Verified Permissions can be efficient for intra-tenant access. Dedicated knowledge bases or accounts may be necessary for hard boundaries.&lt;/p&gt;
+&lt;p&gt;The practical takeaway: RAG authorization belongs in the retrieval path. If the model can see data the user should not see, the answer is already compromised.&lt;/p&gt;</content:encoded></item></channel></rss>
